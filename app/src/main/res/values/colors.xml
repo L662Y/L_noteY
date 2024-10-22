@@ -7,11 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-<<<<<<< colorsY
-    <color name="White2">F5F5F5</color>
-
-=======
-    <color name="light_green">#D3E8DF</color>
-    <color name="dark_green">B7D4D0</color>
->>>>>>> master
+    <color name="green_n">#ACFCDD</color>
+    <color name="green_dn">#67D6AC</color>
 </resources>
