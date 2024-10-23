@@ -1,4 +1,11 @@
 <resources>
+
+   
+    <string name="Notes">Notes</string>
+    <string name="Name">Name</string>
+    <string name="Description">Description</string>
+
     <string name="app_name">NoteL662Y</string>
+
 
 </resources>
