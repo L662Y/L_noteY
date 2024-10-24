@@ -23,6 +23,7 @@
             android:textSize="22sp" />
 
         <ImageView
+            android:id="@+id/ImageView_Save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -52,12 +53,14 @@
                 android:layout_marginEnd="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/Name"
                     android:inputType="textPersonName"
                     android:textColor="@color/black"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    tools:ignore="TouchTargetSizeCheck"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,9 +85,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp">
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/Description"
