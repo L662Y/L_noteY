@@ -14,7 +14,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity implements RecyclerViewInterface {
     AdapterClass1 adapter;
     RecyclerView recyclerView;
     ImageView imageView_add;
@@ -35,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, AddNote.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -55,7 +56,23 @@ public class MainActivity2 extends AppCompatActivity {
             helperClass1s.add(new HelperClass1(strings1.get(i), strings2.get(i)));
             i--;
         }
-        adapter = new AdapterClass1(helperClass1s, this);
+        adapter = new AdapterClass1(helperClass1s, this , this);
         recyclerView.setAdapter(adapter);
+    }
+// we must create Page 4
+    @Override
+    public void ItemClick(int position) {
+        SharedPreferences sharedPreferences = getSharedPreferences("Note", MODE_PRIVATE);
+        Intent intent = new Intent(MainActivity2.this,MainActivity3.class);
+        ArrayList<String> strings1 = new ArrayList<>();
+        ArrayList<String> strings2 = new ArrayList<>();
+        strings2 = HelperClass1.sort(sharedPreferences.getString("N_Disc",""));
+        strings1 = HelperClass1.sort(sharedPreferences.getString("N_Name",""));
+        intent.putExtra("Disc", strings2.get(strings2.size()-position-1));
+        intent.putExtra("Name", strings1.get(strings1.size()-position-1));
+        String Position = HelperClass1.convertRegister(position);
+        intent.putExtra("position",Position);
+        startActivity(intent);
+
     }
 }

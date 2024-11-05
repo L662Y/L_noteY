@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        logoAniTop= AnimationUtils.loadAnimation(this,R.anim.logo_top_anim);
+        appNameAnimLeft=AnimationUtils.loadAnimation(this,R.anim.app_name_anim_left);
+        imageView=findViewById(R.id.logo_image);
+        textView=findViewById(R.id.app_name_text);
+        imageView.setAnimation(logoAniTop);
+        textView.setAnimation(appNameAnimLeft);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -37,13 +44,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }, SPLASH_TIME_OUT);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        logoAniTop= AnimationUtils.loadAnimation(this,R.anim.logo_top_anim);
-        appNameAnimLeft=AnimationUtils.loadAnimation(this,R.anim.app_name_anim_left);
-        imageView=findViewById(R.id.logo_image);
-        textView=findViewById(R.id.app_name_text);
-        imageView.setAnimation(logoAniTop);
-        textView.setAnimation(appNameAnimLeft);
 
     }
 }
