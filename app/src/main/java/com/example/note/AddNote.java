@@ -15,36 +15,42 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddNote extends AppCompatActivity {
-    EditText editText1,editText2;
+    EditText editText1, editText2;
     ImageView imageView_save;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         editText1 = findViewById(R.id.EditText1);
         editText2 = findViewById(R.id.EditText2);
         imageView_save = findViewById(R.id.ImageView_Save);
         imageView_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getSharedPreferences("Note",MODE_PRIVATE);
-                String Note_Name,Disc;
-                Note_Name = sharedPreferences.getString("N_Name","");
-                Disc = sharedPreferences.getString("N_Disc","");
+                if (editText1.getText().toString().equals("")) {
+                    Toast.makeText(AddNote.this, "Please Write Title", Toast.LENGTH_LONG).show();
+                } else {
+                    SharedPreferences sharedPreferences = getSharedPreferences("Note", MODE_PRIVATE);
+                    String Note_Name, Disc;
+                    Note_Name = sharedPreferences.getString("N_Name", "");
+                    Disc = sharedPreferences.getString("N_Disc", "");
 
-                Note_Name = Note_Name + editText1.getText().toString() + "+";
-                Disc = Disc + editText2.getText().toString() + "+";
+                    Note_Name = Note_Name + editText1.getText().toString() + "+";
+                    Disc = Disc + editText2.getText().toString() + "+";
 
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                editor.putString("N_Name",Note_Name);
-                editor.putString("N_Disc",Disc);
-                editor.apply();
-                Intent intent = new Intent(AddNote.this, MainActivity2.class);
-                startActivity(intent);
-                finish();
+                    editor.putString("N_Name", Note_Name);
+                    editor.putString("N_Disc", Disc);
+                    editor.apply();
+                    Intent intent = new Intent(AddNote.this, MainActivity2.class);
+                    startActivity(intent);
+                    finish();
+                }
+
             }
         });
 
@@ -53,6 +59,8 @@ public class AddNote extends AppCompatActivity {
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {
-        Toast.makeText(AddNote.this, "This option don't work", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(AddNote.this, MainActivity2.class);
+        startActivity(intent);
+        finish();
     }
 }
