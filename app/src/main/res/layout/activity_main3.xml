@@ -11,7 +11,7 @@
     >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_margin="10dp"
         >
 
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
             android:src="@drawable/ic_baseline_edit_24">
 
         </ImageView>
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="20dp"
             android:src="@drawable/ic_baseline_delete_24">
 
@@ -43,8 +43,8 @@
         android:id="@+id/NoteNameMain3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Notes"
-        android:textSize="40sp"
+        android:text="@string/Note"
+        android:textSize="30sp"
         android:layout_margin="9dp"
         android:gravity="center"
         android:textColor="@color/green_dn"

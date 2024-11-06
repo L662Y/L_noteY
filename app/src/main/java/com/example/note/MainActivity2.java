@@ -73,6 +73,9 @@ public class MainActivity2 extends AppCompatActivity implements RecyclerViewInte
         String Position = HelperClass1.convertRegister(position);
         intent.putExtra("position",Position);
         startActivity(intent);
+        finish();
 
     }
+
+
 }

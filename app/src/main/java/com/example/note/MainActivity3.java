@@ -117,4 +117,13 @@ public class MainActivity3 extends AppCompatActivity {
         });
 
     }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+    Intent intent = new Intent(MainActivity3.this, MainActivity2.class);
+    startActivity(intent);
+    finish();
+
+    }
 }

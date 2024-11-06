@@ -15,21 +15,21 @@
             android:id="@+id/TextView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginStart="22dp"
-            android:fontFamily="@font/rammetto_one"
-            android:text="@string/Notes"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="18dp"
+            android:fontFamily="@font/lumanosimo"
+            android:text="@string/Note"
             android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/TextView1"
-            android:layout_marginStart="22dp"
-            android:text="@string/Description"
+            android:layout_marginStart="24dp"
+            android:text="@string/app_name"
             android:textColor="@color/green_dn"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -50,7 +50,6 @@
             android:src="@drawable/ic_baseline_add_circle_24" />
 
     </RelativeLayout>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView1"

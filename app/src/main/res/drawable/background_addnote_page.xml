@@ -5,6 +5,6 @@
         android:angle="270"
         android:startColor="@color/white"
         android:centerColor="@color/green_n"
-        android:endColor="@color/green_n"
+        android:endColor="@color/green_dn"
         />
 </shape>
