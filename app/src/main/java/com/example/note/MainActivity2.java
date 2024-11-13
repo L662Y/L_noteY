@@ -15,9 +15,10 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity implements RecyclerViewInterface {
+
     AdapterClass1 adapter;
     RecyclerView recyclerView;
-    ImageView imageView_add;
+    ImageView imageView_add, imageView_lock;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -47,34 +48,50 @@ public class MainActivity2 extends AppCompatActivity implements RecyclerViewInte
         ArrayList<HelperClass1> helperClass1s = new ArrayList<>();
         ArrayList<String> strings1 = new ArrayList<>();
         ArrayList<String> strings2 = new ArrayList<>();
+        ArrayList<String> strings3 = new ArrayList<>();
 
         strings1 = HelperClass1.sort(sharedPreferences.getString("N_Name", ""));
         strings2 = HelperClass1.sort(sharedPreferences.getString("N_Disc", ""));
-
+        strings3 = HelperClass1.sort(sharedPreferences.getString("PassWord", ""));
         int i = (strings1.size() - 1);
         while (i >= 0) {
-            helperClass1s.add(new HelperClass1(strings1.get(i), strings2.get(i)));
-            i--;
+            if (strings3.get(i).equals("")) {
+                helperClass1s.add(new HelperClass1(strings1.get(i), strings2.get(i)));
+                i--;
+            } else {
+                helperClass1s.add(new HelperClass1(strings1.get(i), ""));
+                i--;
+            }
         }
-        adapter = new AdapterClass1(helperClass1s, this , this);
+        adapter = new AdapterClass1(helperClass1s, this, this);
         recyclerView.setAdapter(adapter);
     }
-// we must create Page 4
+
+    // we must create Page 4
     @Override
     public void ItemClick(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Note", MODE_PRIVATE);
-        Intent intent = new Intent(MainActivity2.this,MainActivity3.class);
         ArrayList<String> strings1 = new ArrayList<>();
         ArrayList<String> strings2 = new ArrayList<>();
-        strings2 = HelperClass1.sort(sharedPreferences.getString("N_Disc",""));
-        strings1 = HelperClass1.sort(sharedPreferences.getString("N_Name",""));
-        intent.putExtra("Disc", strings2.get(strings2.size()-position-1));
-        intent.putExtra("Name", strings1.get(strings1.size()-position-1));
-        String Position = HelperClass1.convertRegister(position);
-        intent.putExtra("position",Position);
-        startActivity(intent);
-        finish();
-
+        ArrayList<String> strings3 = new ArrayList<>();
+        strings1 = HelperClass1.sort(sharedPreferences.getString("N_Name", ""));
+        strings2 = HelperClass1.sort(sharedPreferences.getString("N_Disc", ""));
+        strings3 = HelperClass1.sort(sharedPreferences.getString("PassWord", ""));
+        if (strings3.get(strings1.size() - position - 1).equals("")) {
+            Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+            intent.putExtra("Disc", strings2.get(strings2.size() - position - 1));
+            intent.putExtra("Name", strings1.get(strings1.size() - position - 1));
+            String Position = HelperClass1.convertRegister(position);
+            intent.putExtra("position", Position);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent = new Intent(MainActivity2.this, PassPage.class);
+            String Position = HelperClass1.convertRegister(position);
+            intent.putExtra("position", Position);
+            startActivity(intent);
+            finish();
+        }
     }
 
 

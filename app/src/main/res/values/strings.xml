@@ -5,4 +5,8 @@
     <string name="title">title</string>
     <string name="app_name">NoteL662Y</string>
     <string name="hint">You can not change it later</string>
+    <string name="hint2">PassWord,not required</string>
+    <string name="Save">Save</string>
+    <string name="Welcome">Welcome</string>
+    <string name="Password">Password</string>
 </resources>
