@@ -54,6 +54,7 @@
                 android:textSize="10sp"
                 android:fontFamily="@font/lumanosimo"
                 tools:ignore="SmallSp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,6 +67,51 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/title"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    tools:ignore="TouchTargetSizeCheck"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/background_view_note_name">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hint2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="1dp"
+                android:textSize="10sp"
+                android:fontFamily="@font/lumanosimo"
+                tools:ignore="SmallSp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditText3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Password"
                     android:inputType="textPersonName"
                     android:textColor="@color/black"
                     tools:ignore="TouchTargetSizeCheck"

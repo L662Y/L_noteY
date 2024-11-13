@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddNote extends AppCompatActivity {
-    EditText editText1, editText2;
+    EditText editText1, editText2 , editText3;
     ImageView imageView_save;
 
     @SuppressLint("MissingInflatedId")
@@ -26,6 +26,7 @@ public class AddNote extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         editText1 = findViewById(R.id.EditText1);
         editText2 = findViewById(R.id.EditText2);
+        editText3 = findViewById(R.id.EditText3);
         imageView_save = findViewById(R.id.ImageView_Save);
         imageView_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,17 +35,19 @@ public class AddNote extends AppCompatActivity {
                     Toast.makeText(AddNote.this, "Please Write Title", Toast.LENGTH_LONG).show();
                 } else {
                     SharedPreferences sharedPreferences = getSharedPreferences("Note", MODE_PRIVATE);
-                    String Note_Name, Disc;
+                    String Note_Name, Disc , Password;
                     Note_Name = sharedPreferences.getString("N_Name", "");
                     Disc = sharedPreferences.getString("N_Disc", "");
-
+                    Password = sharedPreferences.getString("PassWord","");
                     Note_Name = Note_Name + editText1.getText().toString() + "+";
                     Disc = Disc + editText2.getText().toString() + "+";
+                    Password = Password + editText3.getText().toString() + "+";
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
                     editor.putString("N_Name", Note_Name);
                     editor.putString("N_Disc", Disc);
+                    editor.putString("PassWord",Password);
                     editor.apply();
                     Intent intent = new Intent(AddNote.this, MainActivity2.class);
                     startActivity(intent);
