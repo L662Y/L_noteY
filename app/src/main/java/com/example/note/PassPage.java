@@ -36,7 +36,7 @@ public class PassPage extends AppCompatActivity {
                 strings2 = HelperClass1.sort(sharedPreferences.getString("N_Disc", ""));
                 strings3 = HelperClass1.sort(sharedPreferences.getString("PassWord",""));
                 int position = Integer.parseInt(getIntent().getStringExtra("position"));
-                if (editText1.getText().toString().equals(strings1.get(strings1.size() - position -1))) {
+                if (editText1.getText().toString().equals(strings3.get(strings1.size() - position -1))) {
                     Intent intent = new Intent(PassPage.this, MainActivity3.class);
                     intent.putExtra("Disc", strings2.get(strings2.size() - position - 1));
                     intent.putExtra("Name", strings1.get(strings1.size() - position - 1));
